@@ -1,0 +1,17 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "11.1.1",
+    "electron-builder": "^22.9.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

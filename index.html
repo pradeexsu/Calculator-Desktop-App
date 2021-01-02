@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+   <head>
+      <link rel="stylesheet" href="style.css">
+
+   </head>
+   <body>
+      <!-- <span class="close-tab" onclick="window.close()">&cross;</span> -->
+      <div>
+         
+         <div class="tab"> &nbsp;</div>
+         <font color="white">
+         <span class="min-tab" id="minimize" class="control" >&nbsp;&nbsp; &#9866; &nbsp;&nbsp;</span>
+         <span class="close-tab" onclick="window.close()" class="control" >&nbsp;&nbsp; &#10008; &nbsp;&nbsp;</span> 
+      </font>
+      </div>
+
+      <script type="text/javascript">
+            var ipc = require('electron').ipcRenderer;
+            var clicked = document.getElementById('minimize');
+
+            clicked.addEventListener('click', function(){
+                ipc.once('actionReply', function(event, response){
+                })
+                ipc.send('invokeAction', 'someData');
+            });
+
+      </script>
+
+
+      <form name="calculator">
+         <table cellpadding="5" cellspacing="2">
+            <tr height="60">
+               <td colspan="4" >
+                  <input type="text" name="display" id="display" disabled>
+               </td>
+            </tr>
+            <tr  height="50">
+               <td class="block" align="center" onclick="calculator.display.value += '1'" > 1</td>
+               <td class="block" align="center" onclick="calculator.display.value += '2'" > 2</td>
+               <td class="block" align="center" onclick="calculator.display.value += '3'" > 3</td>
+               <td class="x-block" align="center" onclick="calculator.display.value += '+'"> &plus; </td>
+   
+            </tr>
+            <tr height="50">
+               <td class="block" align="center" onclick="calculator.display.value += '4'" > 4</td>
+               <td class="block" align="center" onclick="calculator.display.value += '5'" > 5</td>
+               <td class="block" align="center" onclick="calculator.display.value += '6'" > 6</td>
+               <td class="x-block" align="center" onclick="calculator.display.value += '-'"> &minus;</td>
+
+            </tr>
+            <tr height="50">
+               <td class="block" align="center" onclick="calculator.display.value += '7'" > 7</td>
+               <td class="block" align="center" onclick="calculator.display.value += '8'" > 8</td>
+               <td class="block" align="center" onclick="calculator.display.value += '9'" > 9</td>
+               <td class="x-block" align="center" onclick="calculator.display.value += '*'"> &times;</td>
+
+            </tr>
+            <tr height="50">
+               <td class="x-block" align="center" onclick="calculator.display.value = ''" > C </td>
+               <td class="x-block" align="center" onclick="calculator.display.value += '0'" > 0</td>
+               <td class="x-block" align="center" onclick="calculator.display.value = eval(calculator.display.value)" > = </td>
+               <td class="x-block" align="center" onclick="calculator.display.value += '/'"> &divide;</td>
+            </tr>
+         </table>
+      </form>
+     
+   </body>
+</html>
